@@ -1,5 +1,5 @@
 import unittest
-from goph420_lab02
+from goph420_lab02 import
 
 
 class TestGaussLegendre(unittest.TestCase):
