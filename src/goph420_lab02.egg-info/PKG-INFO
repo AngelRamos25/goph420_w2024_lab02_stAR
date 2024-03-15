@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: goph420_lab02
+Version: 0.0.1
+Summary: Lab 2: Root Finding
+Author-email: Angel Ramos <modesto.ramoshernand@ucalgary.ca>
+Project-URL: Homepage, https://github.com/AngelRamos25/goph420_w2024_lab02_stAR.git
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: matplotlib
