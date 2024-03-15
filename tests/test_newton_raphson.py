@@ -1,5 +1,5 @@
 import unittest
-from goph420_lab02 import integration as Itg
+from goph420_lab02
 
 
 class TestGaussLegendre(unittest.TestCase):
