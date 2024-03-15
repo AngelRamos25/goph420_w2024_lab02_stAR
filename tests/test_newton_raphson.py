@@ -1,35 +1,14 @@
 import unittest
-from goph420_lab01 import integration as Itg
+from goph420_lab02 import integration as Itg
 
 
 class TestGaussLegendre(unittest.TestCase):
 
-    def test_Gauss(self):
-        lims = [0, 10]
-        npts = 1
+    def test_Newton_Raphson(self):
+        x0 = 1
         fx = Itg.Polyn(npts)
         result = Itg.integrate_gauss(fx, lims, npts)
         self.assertEqual(result, 60)
-
-        npts = 2
-        fx = Itg.Polyn(npts)
-        result = Itg.integrate_gauss(fx, lims, npts)
-        self.assertAlmostEqual(result, 8680/3, places=9)
-
-        npts = 3
-        fx = Itg.Polyn(npts)
-        result = Itg.integrate_gauss(fx, lims, npts)
-        self.assertAlmostEqual(result, 189560, places=9)
-
-        npts = 4
-        fx = Itg.Polyn(npts)
-        result = Itg.integrate_gauss(fx, lims, npts)
-        self.assertAlmostEqual(result, 98826920/7, places=7)
-
-        npts = 5
-        fx = Itg.Polyn(npts)
-        result = Itg.integrate_gauss(fx, lims, npts)
-        self.assertEqual(result, 70889442280/63)
 
     def test_raises_gauss(self):
         # Test raises:
