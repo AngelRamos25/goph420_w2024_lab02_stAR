@@ -36,22 +36,82 @@ def root_newton_raphson(
         )
 
     float(x0)
-    eps_r = np.zeros(())
-    N = 0
-    while eps_r > 0.5e-5:
+
+    tol = 0.5e-5
+    eps_r = np.zeros((100, 1))
+    eps_r_c = 1
+    N = -1
+    while eps_r_c > tol:
         N += 1
         root = x0 - f(x0)/dfdx(x0)
-        eps_r[N] = np.abs((root - x0)/root)
+        eps_r_c = np.abs((root - x0)/root)
+        eps_r[N] = eps_r_c
         x0 = root
+    print(x0)
+    return x0
 
-    return (root, N, eps_r)
+
+def root_secant_modified(
+        x0: float,
+        dx: float,
+        f) -> any:
+    """ Secant method modified:
+    This function performs a root finding using Secant method modified.
+
+    Inputs:
+    ---------------
+    x0: Intial guess.
+    dx: Step size for derivative estimtion.
+    f: Function f(x).
+
+    Outputs:
+    ---------------
+    root: Returns the final estimate of the root.
+    N: Returns de number of iterations to convergence.
+    eps_r: Returns a one dimensional vector with the approximate relative errors.
+
+    Raises:
+    -----------------
+    TypeError if f(x) is not callable.
+    ValueError if x0 or dx are not convertible to float.
+    """
+    float(dx)
+    float(x0)
+
+    if callable(f) is False:
+        raise TypeError(
+            "f is not calleable"
+        )
+
+    tol = 0.5e-5
+    eps_r = np.zeros((100, 1))
+    eps_r_c = 1
+    N = -1
+    while eps_r_c > tol:
+        N += 1
+        root = x0 - f(x0)*dx/(f(x0 + dx) - f(x0))
+        eps_r_c = np.abs((root - x0)/root)
+        eps_r[N] = eps_r_c
+        x0 = root
+    print(x0)
+    return x0
 
 
-class functions_Test:
+class function_Test:
 
     def __init__(self):
         pass
 
     def __call__(self, x0):
         f = x0 ** 3 + x0 ** 2 + x0 + 1  # Root = -1
+        return f
+
+
+class function_dfdx_Test:
+
+    def __init__(self):
+        pass
+
+    def __call__(self, x0):
+        f = 3 * x0 ** 2 + 2 * x0 + 1  # Root = -1
         return f
