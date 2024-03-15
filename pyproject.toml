@@ -2,12 +2,12 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 [project]
-name = "goph420_lab01"
+name = "goph420_lab02"
 version = "0.0.1"
 authors = [
 { name="Angel Ramos", email="modesto.ramoshernand@ucalgary.ca" },
 ]
-description="Lab 1: Numerical Integration"
+description="Lab 2: Root Finding"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
@@ -20,4 +20,4 @@ classifiers = [
 "License :: OSI Approved :: GNU General Public License v3",
 ]
 [project.urls]
-"Homepage" = "https://github.com/AngelRamos25/goph420_w2024_lab01_stAR.git"
+"Homepage" = "https://github.com/AngelRamos25/goph420_w2024_lab02_stAR.git"
