@@ -49,24 +49,9 @@ def root_newton_raphson(
 
 class functions_Test:
 
-    def __init__(self, x0, noF):
-        self.x0 = x0
-        self.noF = noF
+    def __init__(self):
+        pass
 
-    def fx(self):
-        if self.noF == 1:
-            f = self.x0 + 1  # Root = -1
-        if self.noF == 2:
-            f = self.x0 ** 2  # Root = 0
-        if self.noF == 3:
-            f = self.x0 ** 3 + self.x0 ** 2 + self.x0 + 1  # Root = -1
+    def __call__(self, x0):
+        f = x0 ** 3 + x0 ** 2 + x0 + 1  # Root = -1
         return f
-
-    def dfdx(self):
-        if self.noF == 1:
-            fp = 1
-        if self.noF == 2:
-            fp = 2*self.x0
-        if self.noF == 3:
-            fp = 3*self.x0 ** 2 + 2*self.x0 + 1
-        return fp
