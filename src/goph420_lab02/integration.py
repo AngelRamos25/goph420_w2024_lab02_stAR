@@ -4,7 +4,7 @@ import numpy as np
 def root_newton_raphson(
         x0: float,
         f,
-        dfdx) -> any:
+        dfdx):
     """ Newton-Raphson method:
     This function performs a root finding using Newton-Raphson method.
 
@@ -38,23 +38,21 @@ def root_newton_raphson(
     float(x0)
 
     tol = 0.5e-5
-    eps_r = np.zeros((100, 1))
+    eps_r = 0
     eps_r_c = 1
-    N = -1
+
     while eps_r_c > tol:
-        N += 1
         root = x0 - f(x0)/dfdx(x0)
         eps_r_c = np.abs((root - x0)/root)
-        eps_r[N] = eps_r_c
+        eps_r = [eps_r, eps_r_c]
         x0 = root
-    print(x0)
     return x0
 
 
 def root_secant_modified(
         x0: float,
         dx: float,
-        f) -> any:
+        f):
     """ Secant method modified:
     This function performs a root finding using Secant method modified.
 
@@ -84,16 +82,13 @@ def root_secant_modified(
         )
 
     tol = 0.5e-5
-    eps_r = np.zeros((100, 1))
+    eps_r = 0
     eps_r_c = 1
-    N = -1
     while eps_r_c > tol:
-        N += 1
         root = x0 - f(x0)*dx/(f(x0 + dx) - f(x0))
         eps_r_c = np.abs((root - x0)/root)
-        eps_r[N] = eps_r_c
+        eps_r = [eps_r, eps_r_c]
         x0 = root
-    print(x0)
     return x0
 
 
@@ -115,3 +110,39 @@ class function_dfdx_Test:
     def __call__(self, x0):
         f = 3 * x0 ** 2 + 2 * x0 + 1  # Root = -1
         return f
+
+
+class Equation1:
+    def __init__(self, f=0.001) -> None:
+        self.f = f
+
+    def __call__(self, x):
+        H = 4000
+        beta1 = 1900
+        beta2 = 3200
+        rho1 = 1800
+        rho2 = 2500
+
+        tan = x*np.tan(2*np.pi*self.f*x)
+        rhoRatio = (rho2/rho1)**2
+        res = 1/(beta1**2) - 1/(beta2**2)
+        gs = tan**2 - rhoRatio*((H**2)*res - x**2)
+        return gs
+
+
+class Equation1_derivative:
+    def __init__(self, f=0.001) -> None:
+        self.f = f
+
+    def __call__(self, x):
+        rho1 = 1800
+        rho2 = 2500
+        beta1 = 1900
+        beta2 = 3200
+        H = 4000
+        res = 1/(beta1**2) - 1/(beta2**2)
+        tan = np.tan(2*np.pi*self.f*x)
+        cos = np.cos(2*np.pi*self.f*x)
+        gsp = 2*x*tan + (x**2)*(1/(cos**2)) - \
+            ((rho2/rho1)**2)*((H**2)*res - 2*x)
+        return gsp
