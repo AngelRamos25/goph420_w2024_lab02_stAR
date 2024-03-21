@@ -1,6 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
-from goph420_lab02 import integration as Itg
+from goph420_lab02 import rootFunctions as Itg
 
 x = np.arange(-100, 100, 1)
 f = np.arange(-5, 5, 0.1)
