@@ -8,17 +8,17 @@ class TestNewtonRaphson(unittest.TestCase):
         x0 = 10
         fx = rt.function_Test()
         dfdx = rt.function_dfdx_Test()
-        result = rt.root_newton_raphson(x0, fx, dfdx)
+        result, N, eps = rt.root_newton_raphson(x0, fx, dfdx)
         self.assertAlmostEqual(result, -1, 5)
 
         x0 = 10
         fx = rt.function_Test_2()
         dfdx = rt.function_dfdx_Test_2()
-        result = rt.root_newton_raphson(x0, fx, dfdx)
+        result, N, eps = rt.root_newton_raphson(x0, fx, dfdx)
         self.assertAlmostEqual(result, 1, 5)
 
         x0 = 150
-        result = rt.root_newton_raphson(x0, fx, dfdx)
+        result, N, eps = rt.root_newton_raphson(x0, fx, dfdx)
         self.assertAlmostEqual(result, 100, 5)
 
     def test_Newton_Raphson_raises(self):

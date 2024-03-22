@@ -38,15 +38,20 @@ def root_newton_raphson(
     float(x0)
 
     tol = 0.5e-5
-    eps_r = 0
+    maxIter = 1000
+    eps_r = np.zeros(maxIter)
     eps_r_c = 1
+    N = 0
 
-    while eps_r_c > tol:
+    while eps_r_c > tol and N <= maxIter:
         root = x0 - f(x0)/dfdx(x0)
         eps_r_c = np.abs((root - x0)/root)
-        eps_r = [eps_r, eps_r_c]
+        eps_r[N] = eps_r_c
         x0 = root
-    return x0
+        N += 1
+
+    eps_r = eps_r[0:N]
+    return (x0, N, eps_r)
 
 
 def root_secant_modified(
@@ -131,7 +136,7 @@ class function_dfdx_Test_2:
 
 
 class Equation1:
-    def __init__(self, f: float = 0.001):
+    def __init__(self, f: float = 1):
         self.f = f
 
     def __call__(self, x) -> float:
@@ -144,12 +149,12 @@ class Equation1:
         tan = np.tan(2*np.pi*self.f*x)
         rhoRatio = (rho2/rho1)
         res = 1/(beta1**2) - 1/(beta2**2)
-        gs = x*tan - rhoRatio*np.sqrt((H**2)*res - x**2)
+        gs = tan - rhoRatio*np.sqrt((H**2)*res - x**2)/x
         return gs
 
 
 class Equation1_derivative:
-    def __init__(self, f=0.001) -> None:
+    def __init__(self, f: float = 0.001) -> float:
         self.f = f
 
     def __call__(self, x):
