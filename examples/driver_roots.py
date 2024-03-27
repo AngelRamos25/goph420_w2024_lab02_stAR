@@ -34,7 +34,7 @@ def main():
     print(zetas[:, 2])
 
     # Plotting f vs zeta for each mode:
-    plt.figure(figsize=(20, 6))
+    plt.figure(figsize=(20, 10))
     plt.plot(freq, zetas[0:len(freq), 0], label='mode 0', linewidth=5.0)
     plt.plot(freq, zetas[0:len(freq), 1], label='mode 1', linewidth=5.0)
     plt.plot(freq, zetas[0:len(freq), 2], label='mode 2', linewidth=5.0)
@@ -49,7 +49,7 @@ def main():
     plt.show()
 
     # Plotting f vs cL for each mode:
-    plt.figure(figsize=(20, 6))
+    plt.figure(figsize=(20, 10))
     plt.plot(freq, cL[0:len(freq), 0], label='mode 0', linewidth=5.0)
     plt.plot(freq, cL[0:len(freq), 1], label='mode 1', linewidth=5.0)
     plt.plot(freq, cL[0:len(freq), 2], label='mode 2', linewidth=5.0)
@@ -60,11 +60,11 @@ def main():
     plt.ylabel("cL [m/s]", fontsize=25)
     plt.legend(fontsize=25)
     # plt.savefig(
-    #   'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_cL.pdf')
+    #    'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_cL.pdf')
     plt.show()
 
     # Plotting f vs lambda for each mode:
-    plt.figure(figsize=(20, 6))
+    plt.figure(figsize=(20, 10))
     plt.plot(freq, lamb[0:len(freq), 0], label='mode 0', linewidth=5.0)
     plt.plot(freq, lamb[0:len(freq), 1], label='mode 1', linewidth=5.0)
     plt.plot(freq, lamb[0:len(freq), 2], label='mode 2', linewidth=5.0)
