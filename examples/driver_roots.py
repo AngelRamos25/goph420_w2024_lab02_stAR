@@ -39,11 +39,13 @@ def main():
     plt.plot(freq, zetas[0:len(freq), 1], label='mode 1', linewidth=5.0)
     plt.plot(freq, zetas[0:len(freq), 2], label='mode 2', linewidth=5.0)
     plt.grid(min)
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
     plt.xlabel('Frequencies [Hz]', fontsize=25)
     plt.ylabel(r"$\zeta$ [s]", fontsize=25)
     plt.legend(fontsize=25)
-    plt.savefig(
-        'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_z.pdf')
+    # plt.savefig(
+    #    'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_z.pdf')
     plt.show()
 
     # Plotting f vs cL for each mode:
@@ -52,11 +54,13 @@ def main():
     plt.plot(freq, cL[0:len(freq), 1], label='mode 1', linewidth=5.0)
     plt.plot(freq, cL[0:len(freq), 2], label='mode 2', linewidth=5.0)
     plt.grid(min)
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
     plt.xlabel('Frequencies [Hz]', fontsize=25)
     plt.ylabel("cL [m/s]", fontsize=25)
     plt.legend(fontsize=25)
-    plt.savefig(
-        'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_cL.pdf')
+    # plt.savefig(
+    #   'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_cL.pdf')
     plt.show()
 
     # Plotting f vs lambda for each mode:
@@ -65,11 +69,13 @@ def main():
     plt.plot(freq, lamb[0:len(freq), 1], label='mode 1', linewidth=5.0)
     plt.plot(freq, lamb[0:len(freq), 2], label='mode 2', linewidth=5.0)
     plt.grid(min)
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
     plt.xlabel('Frequencies [Hz]', fontsize=25)
     plt.ylabel(r"$\lambda_L$ [m]", fontsize=25)
     plt.legend(fontsize=25)
-    plt.savefig(
-        'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_lambda.pdf')
+    # plt.savefig(
+    #    'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_lambda.pdf')
     plt.show()
 
 
