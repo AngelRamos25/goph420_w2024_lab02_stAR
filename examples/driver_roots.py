@@ -44,6 +44,7 @@ def main():
     plt.xlabel('Frequencies [Hz]', fontsize=25)
     plt.ylabel(r"$\zeta$ [s]", fontsize=25)
     plt.legend(fontsize=25)
+    # savefig commented to avoid bugs when running on another computer
     # plt.savefig(
     #    'C:/Users/mange/Desktop/UoC/Winter 2024/GOPH_420/goph420_w2024_lab02_stAR/figures/f_vs_z.pdf')
     plt.show()
